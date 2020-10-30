@@ -36,7 +36,14 @@ routes.put('/historic/:id', HistoricController.update);
 routes.put('/historic', HistoricController.index);
 
 //################# Personas ################################################
-routes.post('/personas', upload.array('images'), PersonasController.create);
+routes.post('/personas',
+            upload.fields([
+              { name: 'avatar', maxCount: 1 },
+              { name: 'images', maxCount: 20 }
+            ]),
+            PersonasController.create
+            );
+routes.get('/personas', PersonasController.index);
 
 
 

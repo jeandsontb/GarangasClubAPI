@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
+import { array } from 'yup';
 
 import PersonaImg from './PersonaImg';
 
@@ -16,6 +17,9 @@ export default class Persona {
 
   @Column()
   description: string;
+
+  @Column()
+  avatar: string;
 
   @OneToMany(() => PersonaImg, image => image.persona, {
     cascade: ['insert', 'update']

@@ -7,7 +7,7 @@ export default {
     filename: (req, file, cb) => {
       const fileName = `${Date.now()}-${file.originalname.replace(/\s+/g, '-')}`;
 
-      cb(null, fileName);
-    },
+      cb(null, fileName );
+    }
   })
 }
