@@ -6,7 +6,8 @@ export default {
   render(persona: Persona) {
     return {
       id: persona.id,
-      name: persona.title,
+      name: persona.name,
+      title: persona.title,
       description: persona.description,
       avatar: `http://localhost:3333/uploads/${persona.avatar}`,
       images: personaImagesView.renderMany(persona.personaImages),

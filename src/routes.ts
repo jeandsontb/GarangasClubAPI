@@ -7,6 +7,8 @@ import ProjectsController from './controller/ProjectsController';
 import LinkMovieController from './controller/LinkMovieController';
 import HistoricController from './controller/HistoricController';
 import PersonasController from './controller/PersonasController';
+import CarSaleController from './controller/CarSaleController';
+import UserController from './controller/UserController';
 
 
 const routes = Router();
@@ -41,10 +43,33 @@ routes.post('/personas',
               { name: 'avatar', maxCount: 1 },
               { name: 'images', maxCount: 20 }
             ]),
-            PersonasController.create
+              PersonasController.create
             );
 routes.get('/personas', PersonasController.index);
+routes.get('/personas/:id', PersonasController.show);
+routes.delete('/personas/:id', PersonasController.delete);
+routes.put('/personas/:id', upload.single('avatar'), PersonasController.update);
 
+//################# Cars the Sale ############################################
+
+routes.post('/carsales',
+            upload.fields([
+              { name: 'cover', maxCount: 1 },
+              { name: 'images', maxCount: 20 }
+            ]),
+              CarSaleController.create
+            );
+routes.put('/carsales/:id', upload.single('cover'), CarSaleController.update);
+routes.get('/carsales', CarSaleController.index);
+routes.get('/carsales/:id', CarSaleController.show);
+routes.delete('/carsales/:id', CarSaleController.delete);
+
+
+//################# User #####################################################
+
+routes.post('/users', UserController.create);
+routes.get('/users', UserController.index);
+routes.delete('/users/:id', UserController.delete);
 
 
 export default routes;

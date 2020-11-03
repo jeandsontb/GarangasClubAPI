@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
-import { array } from 'yup';
 
 import PersonaImg from './PersonaImg';
 
