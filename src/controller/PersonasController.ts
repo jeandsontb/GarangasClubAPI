@@ -87,13 +87,13 @@ export default {
     const personaRepository = getRepository(Persona);
 
     const requestImages = req.files as Express.Multer.File[];
-    const images = requestImages.images.map((image) => {
+    const images = requestImages.images.map((image: { filename: string; }) => {
       return {
         path: image.filename.replace(/\s+/g, '-')
       }
     });
 
-    const avatar = requestImages.avatar.map((avatar) => {
+    const avatar = requestImages.avatar.map((avatar: { filename: string; }) => {
       return {
         avatar: avatar.filename.replace(/\s+/g, '-')
       }

@@ -98,13 +98,13 @@ export default {
     const carSaleRepository = getRepository(CarSale);
 
     const requestImages = req.files as Express.Multer.File[];
-    const cover = requestImages.cover.map((cover) => {
+    const cover = requestImages.cover.map((cover: { filename: string; }) => {
       return {
         cover: cover.filename.replace(/\s+/g, '-')
       }
     });
 
-    const images = requestImages.images.map((image) => {
+    const images = requestImages.images.map((image: { filename: string; }) => {
       return {
         path: image.filename.replace(/\s+/g, '-')
       }
