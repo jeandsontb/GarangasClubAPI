@@ -1,10 +1,10 @@
 {
   "type": "mysql",
-  "host": "localhost",
+  "host": "mysql741.umbler.com",
   "port": "3306",
   "database": "garangasclub",
-  "username": "root",
-  "password": "",
+  "username": "garangas",
+  "password": "Novidades825007",
   "migrations": [
     "./src/database/migrations/*.ts"
   ],
